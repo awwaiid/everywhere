@@ -1,0 +1,6 @@
+Revision history for Perl extension feature::globally.
+
+0.01  Wed Apr 23 11:21:39 2008
+	- original version; created by h2xs 1.23 with options
+		-X -n feature::globally
+
