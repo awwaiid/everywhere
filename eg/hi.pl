@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 use strict;
-use feature::globally qw/ say /;
+use everywhere qw/ 5.010 /;
 use Greet;
 
 Greet::hello();
