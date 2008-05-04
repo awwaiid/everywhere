@@ -1,6 +1,8 @@
-Changes
-Makefile.PL
 MANIFEST
+Changes
+eg/Greet.pm
+eg/hi.pl
+t/everywhere.t
+Makefile.PL
+lib/everywhere.pm
 README
-t/feature-globally.t
-lib/feature/globally.pm
