@@ -28,35 +28,52 @@ throw this in my toplevel program and not have to Repeat Myself elsewhere.
 
 In theory you should be able to pass it whatever you pass to use.
 
+Also, I just made it so you can do:
+
+  use everywhere 'MooseX::Declare',
+    matching => '^MyApp';
+
+for example and then it will only apply this module to things matching your
+regex. This is experimental :)
+
 =cut
 
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub import {
   my ($class, $module, @items) = @_;
+  my $matching = qx/.*/;
   my $use_line = "use $module";
+  if($items[0] eq 'matching') {
+    $matching = eval '$items[1]';
+    shift @items; shift @items;
+  }
   $use_line .= " qw/" . join(' ', @items) if @items;
   $use_line .= ";\n";
   eval $use_line;
   unshift @INC, sub {
     my ($self, $file) = @_;
-    foreach my $dir (@INC) {
-      next if ref $dir;
-      my $full = "$dir/$file";
-      if(open my $fh, "<", $full) {
-        my @lines = ($use_line);
-        return ($fh, sub {
-          if(@lines) {
-            push @lines, $_;
-            $_ = shift @lines;
-            return length $_;
-          }
-          return 0;
-        });
+    if($file =~ $matching) {
+      foreach my $dir (@INC) {
+        next if ref $dir;
+        my $full = "$dir/$file";
+        if(open my $fh, "<", $full) {
+          my @lines = ($use_line);
+          return ($fh, sub {
+            if(@lines) {
+              push @lines, $_;
+              $_ = shift @lines;
+              return length $_;
+            }
+            return 0;
+          });
+        }
       }
+    } else {
+      return undef;
     }
   };
   return;
