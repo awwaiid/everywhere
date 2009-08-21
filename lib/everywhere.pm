@@ -45,7 +45,7 @@ our $VERSION = '0.03';
 
 sub import {
   my ($class, $module, @items) = @_;
-  my $matching = qx/.*/;
+  my $matching = qr/.*/;
   my $use_line = "use $module";
   if($items[0] eq 'matching') {
     $matching = eval '$items[1]';
