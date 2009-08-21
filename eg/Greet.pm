@@ -2,7 +2,8 @@
 package Greet;
 
 sub hello {
-  say "Hello!";
+  $x = 5;
+  say "Hello! ($x)";
 }
 
 1;
