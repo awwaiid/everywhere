@@ -20,8 +20,11 @@ print $out $f;
 # *** This is the actual Changelog :) ***
 # ***************************************
 __DATA__
-Tue Sep  1 2009  awwaiid@thelackthereof.org
-  * version bump and fix test
+Thu Sep  3 2009  awwaiid@thelackthereof.org
+  * Fix params and add package_level
+  * Version bump
+  * version bump
+  * shuffle and update
 
 Thu Aug 20 2009  awwaiid@thelackthereof.org
   * Update changelog
