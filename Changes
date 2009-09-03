@@ -20,7 +20,11 @@ print $out $f;
 # *** This is the actual Changelog :) ***
 # ***************************************
 __DATA__
+Tue Sep  1 2009  awwaiid@thelackthereof.org
+  * version bump and fix test
+
 Thu Aug 20 2009  awwaiid@thelackthereof.org
+  * Update changelog
   * random update to example
   * version bump
   * Add use_here flag
