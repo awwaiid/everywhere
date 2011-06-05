@@ -111,7 +111,7 @@ Also look at L<use> and L<feature>.
 
 =head1 COPYRIGHT
 
-  Copyright (c) 2008 Brock Wilcox <awwaiid@thelackthereof.org>. All rights
+  Copyright (c) 2008-2011 Brock Wilcox <awwaiid@thelackthereof.org>. All rights
   reserved.  This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl 5.10 or later.
 
