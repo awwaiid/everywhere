@@ -43,7 +43,7 @@ your package after every "package ..." line. All these are experimental :)
 use strict;
 use warnings;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 sub import {
   my ($class, $module, @items) = @_;
