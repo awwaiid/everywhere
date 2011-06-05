@@ -74,7 +74,8 @@ sub import {
         next if ref $dir;
         my $full = "$dir/$file";
         if(open my $fh, "<", $full) {
-          my @lines = $file_level ? ($use_line) : ();
+          my @lines = ($file_level ? ($use_line) : (),
+            qq{#line 1 "$dir/$file"\n});
           return ($fh, sub {
             if(@lines) {
               push @lines, $_;
