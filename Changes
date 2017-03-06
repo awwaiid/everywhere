@@ -1,25 +1,3 @@
-#!/usr/bin/perl
-# This is an active-changelog! Run it to update it using Darcs.
-# See below for the actual Changelog stuff!
-
-open my $out,"+<",$0;
-seek $out,0,0;
-seek DATA,0,0;
-print $out ($l = <DATA>) until $l eq "__DATA__\n";
-# Get the Darcs changelog
-$f = `darcs changes`;
-# Chop off the timestamps (but keep the date)
-$f =~ s/\d\d:\d\d:\d\d ... //g;
-# Combine like sections. This might need a bit of work.
-1 while($f =~ s/^(... ...\s+\d+ \d\d\d\d  [\w@\.\-]+)$(.*)^\1$/$1$2/gms);
-# Clear out the extra space we just made
-$f =~ s/\n\n\n/\n/g;
-print $out $f;
-
-# ***************************************
-# *** This is the actual Changelog :) ***
-# ***************************************
-__DATA__
 Sat Jun  4 2011  awwaiid@thelackthereof.org
   * Update README and copyright date
   * Bump version
